@@ -1,16 +1,24 @@
 import express from "express";
 import axios from "axios";
 import path from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const app = express();
 const PORT = 3000;
 
-// Serve the PHP file as a static file
+// Serve the HTML file as a static file
 app.get("/dashboard", (_, res) => {
-  const filePath = path.join(__dirname, "public", "dashboard.php");
+  const filePath = path.join(__dirname, "public", "dashboard.html");
+  res.sendFile(filePath);
+});
+app.get("/locations", (_, res) => {
+  const filePath = path.join(__dirname, "public", "locations.html");
   res.sendFile(filePath);
 });
 
+// Example API endpoint
 app.get("/check", async (_, res) => {
   try {
     const response = await axios.get(
