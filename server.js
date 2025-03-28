@@ -10,11 +10,11 @@ const PORT = 3000;
 
 // Serve the HTML file as a static file
 app.get("/dashboard", (_, res) => {
-  const filePath = path.join(__dirname, "public", "dashboard.html");
+  const filePath = path.join(__dirname, "dashboard.html");
   res.sendFile(filePath);
 });
 app.get("/locations", (_, res) => {
-  const filePath = path.join(__dirname, "public", "locations.html");
+  const filePath = path.join(__dirname, "locations.html");
   res.sendFile(filePath);
 });
 
