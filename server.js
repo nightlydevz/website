@@ -19,14 +19,14 @@ app.get("/locations", (_, res) => {
 });
 
 // Example API endpoint
-app.get("/check", async (_, res) => {
+app.get("/status", async (_, res) => {
   try {
     const response = await axios.get(
       "https://jsonplaceholder.typicode.com/posts/1"
     );
     res
       .status(200)
-      .send(`Server is online. Sample data: ${response.data.title}`);
+      .send(`200 Online`);
   } catch (error) {
     res.status(500).send("Error fetching data");
   }
