@@ -1,8 +1,15 @@
 import express from "express";
 import axios from "axios";
+import path from "path";
 
 const app = express();
 const PORT = 3000;
+
+// Serve the PHP file as a static file
+app.get("/dashboard", (_, res) => {
+  const filePath = path.join(__dirname, "public", "dashboard.php");
+  res.sendFile(filePath);
+});
 
 app.get("/check", async (_, res) => {
   try {
